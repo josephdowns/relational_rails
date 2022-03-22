@@ -1,0 +1,2 @@
+class Makers < ApplicationRecord 
+end
