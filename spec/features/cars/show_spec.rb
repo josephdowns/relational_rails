@@ -12,10 +12,18 @@ RSpec.describe "displays a certain car and attributes", type: :feature do
   end
 
   it "displays Durango and its attributes" do
-    visit "/car/#{@car_1.id}"
+    visit "/cars/#{@car_1.id}"
 
     expect(page).to have_content(@car_1.name)
     expect(page).to have_content(@car_1.color)
     expect(page).to_not have_content(@car_2.name)
+  end
+
+  it "can display something different" do
+    visit "/cars/#{@car_2.id}"
+    
+    expect(page).to have_content(@car_2.name)
+    expect(page).to have_content(@car_2.color)
+    expect(page).to_not have_content(@car_1.name)
   end
 end
