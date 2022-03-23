@@ -1,4 +1,5 @@
 class Maker < ApplicationRecord
+  has_many :cars
   def country
     if domestic == true
       return "Go USA!"
