@@ -1,5 +1,9 @@
 class MakersController < ApplicationController
   def index
-    @makers = makers.all
+    @makers = Maker.all
+  end
+
+  def show
+    @maker = Maker.find(params[:id])
   end
 end
