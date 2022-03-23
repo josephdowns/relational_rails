@@ -15,7 +15,7 @@ RSpec.describe "car index page", type: :feature do
 
   it "displays each car's name" do
     visit '/cars'
-    save_and_open_page
+    # save_and_open_page
     expect(page).to have_content(@car_1.name)
     expect(page).to have_content(@car_2.name)
   end
@@ -23,6 +23,6 @@ RSpec.describe "car index page", type: :feature do
   it "displays each car's color" do
     visit '/cars'
     expect(page).to have_content(@car_1.color)
-    expect(page).to have_content(@car_1.color)    
+    expect(page).to have_content(@car_1.color)
   end
 end
