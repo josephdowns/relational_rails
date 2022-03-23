@@ -12,6 +12,12 @@ RSpec.describe 'the makers show page' do
 
   it "displays the makers year_founded" do
     visit "/makers/#{@maker_1.id}"
+    # save_and_open_page
     expect(page).to have_content(@maker_1.year_founded)
+  end
+
+  it "displays domestic or not" do
+    visit "/makers/#{@maker_1.id}"
+    expect(page).to have_content(@maker_1.domestic)
   end
 end
