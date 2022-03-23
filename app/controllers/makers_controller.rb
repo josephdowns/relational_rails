@@ -1,5 +1,5 @@
 class MakersController < ApplicationController
   def index
-    @makers = maker.all
+    @makers = Maker.all
   end
 end
