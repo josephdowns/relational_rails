@@ -1,10 +1,5 @@
 class Maker < ApplicationRecord
   has_many :cars
-  def country
-    if domestic == true
-      return "Go USA!"
-    else
-      return "Well...that's cool too."
-    end
-  end
+  validates_presence_of :name
+  validates_presence_of :year_founded
 end
