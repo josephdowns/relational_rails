@@ -22,13 +22,15 @@ RSpec.describe "associations", type: :feature do
   it "display each car associated with maker" do
     visit "/makers/#{@dodge.id}/cars"
 
+    expect(page).to have_content(@dodge.name)
+
     expect(page).to have_content(@neon.name)
     expect(page).to have_content(@aries.name)
     expect(page).to have_content(@neon.color)
     expect(page).to have_content(@aries.color)
     expect(page).to have_content(@neon.in_production)
     expect(page).to have_content(@aries.in_production)
-    
+
     expect(page).to_not have_content(@x5.name)
     expect(page).to_not have_content(@ix.name)
   end
