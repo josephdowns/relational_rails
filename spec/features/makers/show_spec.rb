@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe 'the makers show page' do
   before (:each) do
     @maker_1 = Maker.create!(name: "Dodge", domestic: true, year_founded: 1900)
+
+    @durango = @maker_1.cars.create!(name: "Durango", color: "black", doors: 4, in_production: true)
+    @neon = @maker_1.cars.create!(name: "Neon", color: "white", doors: 4, in_production: true)
+    @aries = @maker_1.cars.create!(name: "Aries", color: "beige", doors: 2, in_production: false)
   end
 
   it "displays the makers name" do
@@ -19,5 +23,14 @@ RSpec.describe 'the makers show page' do
   it "displays domestic or not" do
     visit "/makers/#{@maker_1.id}"
     expect(page).to have_content(@maker_1.domestic)
+  end
+
+  #   As a visitor
+  # When I visit a parent's show page
+  # I see a count of the number of children associated with this parent
+  it "displays a count of cars associated with the maker" do
+
+    visit "/makers/#{@maker_1.id}"
+    expect(page).to have_content("#{@maker_1.cars_count}")
   end
 end

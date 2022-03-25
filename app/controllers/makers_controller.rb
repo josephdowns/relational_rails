@@ -5,5 +5,6 @@ class MakersController < ApplicationController
 
   def show
     @maker = Maker.find(params[:id])
+    @count = @maker.cars_count
   end
 end

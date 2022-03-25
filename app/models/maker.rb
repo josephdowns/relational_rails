@@ -7,4 +7,8 @@ class Maker < ApplicationRecord
     order(created_at: :desc)
   end
 
+  def cars_count
+    cars.count
+  end
+
 end
