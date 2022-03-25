@@ -1,6 +1,6 @@
 <h1> <%= @maker.name %> </h1>
 <% @cars.each do |car| %>
-<h3> <%= car.name %> </h3>
+<h3> <%= link_to car.name, "/cars/#{car.id}" %> </h3>
 <p>Color: <%= car.color %></p>
 <p>Doors: <%= car.doors %></p>
 <p>Still in production: <%= car.in_production %></p>
