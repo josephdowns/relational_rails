@@ -19,8 +19,20 @@ RSpec.describe "maker index page", type: :feature do
     maker_2 = Maker.create!(name: "BMW", domestic: false, year_founded: 1916)
 
     visit "/makers"
-    save_and_open_page
+
     expect(page).to have_content(maker_1.created_at)
     expect(page).to have_content(maker_2.created_at)
   end
+
+  # it "orders the makers by created_at" do
+  #   maker_1 = Maker.create!(name: "Dodge", domestic: true, year_founded: 1900)
+  #   maker_2 = Maker.create!(name: "BMW", domestic: false, year_founded: 1916)
+  #
+  #   visit "/makers"
+  #   all_makers = page.all('.maker')
+  #
+  #   expect(page.all('.maker')[0]).to have_content("Dodge")
+  #   expect(page.all('.maker')[1]).to have_content("BMW")
+  #
+  # end
 end
