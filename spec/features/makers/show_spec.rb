@@ -33,4 +33,12 @@ RSpec.describe 'the makers show page' do
     visit "/makers/#{@maker_1.id}"
     expect(page).to have_content("#{@maker_1.cars_count}")
   end
+
+  it "links to makers index page" do
+    visit "/makers/#{@maker_1.id}"
+
+    click_on "All Makers"
+
+    expect(current_path).to eq("/makers")
+  end
 end
