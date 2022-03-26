@@ -4,3 +4,4 @@
 <p>Year Founded: <%= @maker.year_founded %></p>
 <p>Made in the US: <%= @maker.domestic %> </p>
 <p>Number of cars: <%= @count %></p>
+<p><%= link_to "List of #{@maker.name} Cars", "/makers/#{@maker.id}/cars"  %></p>
