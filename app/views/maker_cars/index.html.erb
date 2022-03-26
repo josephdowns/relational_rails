@@ -1,3 +1,4 @@
+<p> <%= link_to "All Cars", "/cars" %> </p>
 <h1> <%= @maker.name %> </h1>
 <% @cars.each do |car| %>
 <h3> <%= link_to car.name, "/cars/#{car.id}" %> </h3>

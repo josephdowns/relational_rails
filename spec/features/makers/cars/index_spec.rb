@@ -31,11 +31,11 @@ RSpec.describe "associations", type: :feature do
     expect(page).to_not have_content(@ix.name)
   end
 
-  it "links to each songs show page" do
+  it "links to each cars show page" do
     visit "/makers/#{@dodge.id}/cars"
 
     click_on @neon.name
-    
+
     expect(current_path).to eq("/cars/#{@neon.id}")
   end
 end

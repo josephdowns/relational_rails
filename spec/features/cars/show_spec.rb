@@ -21,9 +21,17 @@ RSpec.describe "displays a certain car and attributes", type: :feature do
 
   it "can display something different" do
     visit "/cars/#{@car_2.id}"
-    
+
     expect(page).to have_content(@car_2.name)
     expect(page).to have_content(@car_2.color)
     expect(page).to_not have_content(@car_1.name)
+  end
+
+  it "links back to the index page" do
+    visit "/cars/#{@car_1.id}"
+
+    click_on "All Cars"
+
+    expect(current_path).to eq("/cars")
   end
 end
