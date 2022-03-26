@@ -41,4 +41,12 @@ RSpec.describe 'the makers show page' do
 
     expect(current_path).to eq("/makers")
   end
+
+  it "links to makers/:id/show page" do
+    visit "/makers/#{@maker_1.id}"
+    
+    click_on "List of #{@maker_1.name} Cars"
+
+    expect(current_path).to eq("/makers/#{@maker_1.id}/cars")
+  end
 end
