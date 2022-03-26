@@ -24,7 +24,7 @@ RSpec.describe "maker index page", type: :feature do
     expect(page).to have_content(maker_2.created_at)
   end
 
-  it "orders the makers by created_at" do
+  it "sorts using order_by_created_at" do
     maker_1 = Maker.create!(name: "Dodge", domestic: true, year_founded: 1900)
     maker_2 = Maker.create!(name: "BMW", domestic: false, year_founded: 1916)
     maker_3 = Maker.create!(name: "Ford", domestic: true, year_founded: 1896)
