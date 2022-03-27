@@ -36,7 +36,6 @@ RSpec.describe "maker index page", type: :feature do
     visit "/makers"
     click_on "New Maker"
 
-    save_and_open_page
     expect(current_path).to eq("/makers/new")
   end
 end

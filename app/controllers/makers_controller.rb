@@ -22,4 +22,8 @@ class MakersController < ApplicationController
 
     redirect_to '/makers'
   end
+
+  def edit
+    @maker = Maker.find(params[:id])
+  end
 end
