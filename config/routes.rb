@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/makers', to: 'makers#create'
   get '/makers/:id', to: 'makers#show'
   get '/makers/:id/edit', to: 'makers#edit'
+  get '/makers/:id', to: 'makers#update'
   get '/cars', to: 'cars#index'
   get '/cars/:id', to: 'cars#show'
   get '/makers/:maker_id/cars', to: 'maker_cars#index'
