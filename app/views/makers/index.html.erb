@@ -3,3 +3,4 @@
 <% @makers.each do |maker|  %>
 <p>Name: <%= maker.name %> Created at: <%= maker.created_at %>
 <% end %>
+<p> <%= link_to "New Maker", "/makers/new" %> </p>
