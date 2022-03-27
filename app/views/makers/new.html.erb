@@ -1,0 +1,14 @@
+<h1>Enter a new maker</h1>
+
+<form action="/makers" method="post">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter the maker's name:</p>
+  <input type="text" name="maker[name]"/><br/>
+  <p>Enter the year founded:</p>
+  <input type="integer" name="maker[year_founded]"/><br/>
+  <p>Domestic?</p>
+  <input type="boolean" name="maker[domestic]"/><br/><br>
+  <input type="submit" value="Create Maker"/>
+
+</form>
