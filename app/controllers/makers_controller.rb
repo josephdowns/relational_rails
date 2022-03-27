@@ -12,7 +12,7 @@ class MakersController < ApplicationController
   end
 
   def create
-    maker = Maker.new({
+    maker = Maker.create({
       name: params[:maker][:name],
       domestic: params[:maker][:domestic],
       year_founded: params[:maker][:year_founded]
@@ -36,5 +36,9 @@ class MakersController < ApplicationController
       })
     maker.save
     redirect_to "/makers/#{maker.id}"
+  end
+
+  def maker_params
+    params.permit(:name, :year_founded, :domestic)
   end
 end

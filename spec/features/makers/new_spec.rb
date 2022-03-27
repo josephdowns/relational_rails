@@ -18,7 +18,6 @@ RSpec.describe "maker creation page", type: :feature do
     fill_in('maker[domestic]', with: true)
     click_button "Create Maker"
 
-    new_maker_id = Maker.last.id
     expect(current_path).to eq("/makers")
     expect(page).to have_content("Testla")
 
