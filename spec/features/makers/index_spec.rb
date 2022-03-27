@@ -32,10 +32,4 @@ RSpec.describe "maker index page", type: :feature do
     expect(@maker_2.name).to appear_before(@maker_1.name)
   end
 
-  it "links me to a makers/new" do
-    visit "/makers"
-    click_on "New Maker"
-
-    expect(current_path).to eq("/makers/new")
-  end
 end
