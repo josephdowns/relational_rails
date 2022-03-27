@@ -26,4 +26,15 @@ class MakersController < ApplicationController
   def edit
     @maker = Maker.find(params[:id])
   end
+
+  def update
+    maker = Maker.find(params[:id])
+    maker.update({
+      name: params[:maker][:name],
+      year_founded: params[:maker][:year_founded],
+      domestic: params[:maker][:domestic]
+      })
+    maker.save
+    redirect_to "/makers/#{maker.id}"
+  end
 end
