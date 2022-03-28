@@ -38,7 +38,7 @@ class MakersController < ApplicationController
     redirect_to "/makers/#{maker.id}"
   end
 
-  def maker_params
-    params.permit(:name, :year_founded, :domestic)
-  end
+  # def maker_params
+    # params.permit(:name, :year_founded, :domestic)
+  # end
 end

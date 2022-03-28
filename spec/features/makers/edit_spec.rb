@@ -19,7 +19,7 @@ RSpec.describe "maker update page", type: :feature do
     fill_in('maker[year_founded]', with: 2016)
     fill_in('maker[domestic]', with: true)
     click_button "Submit"
-save_and_open_page
+# save_and_open_page
     expect(current_path).to eq("/makers/#{bmw.id}")
 
     expect(page).to have_content(2016)
