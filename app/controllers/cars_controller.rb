@@ -8,4 +8,8 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
   end
 
+  def edit
+    binding.pry
+  end
+
 end

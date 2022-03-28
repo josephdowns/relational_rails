@@ -23,6 +23,7 @@ RSpec.describe "maker update page", type: :feature do
 
     expect(page).to have_content(2016)
     expect(page).to have_content(true)
+    expect(page).to_not have_content(1916)
 
   end
 end

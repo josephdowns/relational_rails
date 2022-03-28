@@ -4,3 +4,4 @@
 <p>Color: <%= @car.color %></p>
 <p>Doors: <%= @car.doors %></p>
 <p>In production: <%= @car.in_production %></p>
+<p> <%= link_to "Update #{@car.name}", "/cars/#{@car.id}/edit"  %></p>
