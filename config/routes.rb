@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/cars', to: 'cars#index'
   get '/cars/:id', to: 'cars#show'
   get '/cars/:id/edit', to: 'cars#edit'
+  patch '/cars/:id', to: 'cars#update'
   get '/makers/:maker_id/cars', to: 'maker_cars#index'
   get '/makers/:maker_id/cars/new', to: 'maker_cars#new'
   post '/makers/:maker_id/cars', to: 'maker_cars#create'
