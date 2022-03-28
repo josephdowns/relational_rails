@@ -11,10 +11,10 @@ class MakerCarsController < ApplicationController
   def create
     @maker = Maker.find(params[:maker_id])
     car = @maker.cars.create({
-      name: params[:car][:name],
-      color: params[:car][:color],
-      doors: params[:car][:doors],
-      in_production: params[:car][:in_production],
+      name: params[:name],
+      color: params[:color],
+      doors: params[:doors],
+      in_production: params[:in_production],
       })
 
     car.save

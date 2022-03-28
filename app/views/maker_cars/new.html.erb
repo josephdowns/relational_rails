@@ -1,15 +1,13 @@
 <h1>Enter a new car</h1>
 
-<form action="/makers/<%="#{@maker.id}"%>/cars" method="post">
-  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-  <p>Enter the name of the car:</p>
-  <input type="text" name="car[name]"/><br/>
-  <p>Enter the color of the car:</p>
-  <input type="text" name="car[color]"/><br/>
-  <p>Enter the number of doors:</p>
-  <input type="integer" name="car[doors]" /><br/>
-  <p>In production? True/False</p>
-  <input type="boolean" name="car[in_production]"/><br/><br>
-  <input type="submit" value="Create Car"/>
-
-</form>
+<%= form_with url: "/makers/#{@maker.id}/cars", method: :post, local: true do |f| %>
+  <%= f.label "Enter the name of the car" %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label "Enter the color of the car" %>
+  <%= f.text_field :color %><br><br>
+  <%= f.label "Enter the number of doors" %>
+  <%= f.number_field :doors %><br><br>
+  <%= f.label "In production? True/False" %>
+  <%= f.text_field :in_production %><br><br>
+  <%= f.submit "Create Car" %>
+<% end %>

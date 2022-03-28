@@ -29,11 +29,11 @@ RSpec.describe "pathway to add a car", type: :feature do
 
   it "adds a new car to show page" do
     visit "/makers/#{@ford.id}/cars/new"
-
-    fill_in('car[name]', with: "Zeus")
-    fill_in('car[color]', with: "purple")
-    fill_in('car[doors]', with: "5")
-    fill_in('car[in_production]', with: "false")
+    
+    fill_in('name', with: "Zeus")
+    fill_in('color', with: "purple")
+    fill_in('doors', with: "5")
+    fill_in('in_production', with: "false")
     click_button "Create Car"
 
     expect(current_path).to eq("/makers/#{@ford.id}/cars")

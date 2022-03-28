@@ -1,24 +1,11 @@
 <h1>Enter a new maker</h1>
 
-<form action="/makers" method="post">
-
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter the maker's name:</p>
-  <input type="text" name="maker[name]"/><br/>
-  <p>Enter the year founded:</p>
-  <input type="integer" name="maker[year_founded]"/><br/>
-  <p>Domestic? True/False</p>
-  <input type="boolean" name="maker[domestic]"/><br/><br>
-  <input type="submit" value="Create Maker"/>
-
-</form>
-
-<%# <%= form_with url: '/makers', method: :post, local: true do |form| %>
-  <%# <%= form.label :name %>
-  <%# <%= form.text_field :name %> %>
-  <%# <%= form.label :year_founded %> %>
-  <%# <%= form.text_field :year_founded %> %>
-  <%# <%= form.label :domestic %> %>
-  <%# <%= form.text_field :domestic %> %>
-  <%# <%= form.submit "Create Maker" %> %>
-<%# <% end %> %>
+<%= form_with url: '/makers', method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :year_founded %>
+  <%= f.text_field :year_founded %><br><br>
+  <%= f.label :domestic %>
+  <%= f.text_field :domestic %><br><br>
+  <%= f.submit "Create Maker" %>
+<% end %>

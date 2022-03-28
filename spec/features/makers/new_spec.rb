@@ -12,14 +12,14 @@ RSpec.describe "maker creation page", type: :feature do
 
   it "should create a new maker" do
     visit '/makers/new'
-# save_and_open_page
-    fill_in('maker[name]', with: "Testla")
-    fill_in('maker[year_founded]', with: 2003)
-    fill_in('maker[domestic]', with: true)
+
+    fill_in("name", with: "Testla")
+    fill_in("year_founded", with: 2003)
+    fill_in("domestic", with: true)
     click_button "Create Maker"
 
     expect(current_path).to eq("/makers")
     expect(page).to have_content("Testla")
-
+    expect(page).to_not have_content("Taurus")
   end
 end

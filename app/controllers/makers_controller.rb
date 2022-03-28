@@ -12,14 +12,7 @@ class MakersController < ApplicationController
   end
 
   def create
-    maker = Maker.create({
-      name: params[:maker][:name],
-      domestic: params[:maker][:domestic],
-      year_founded: params[:maker][:year_founded]
-      })
-
-    maker.save
-
+    maker = Maker.create(maker_params)
     redirect_to '/makers'
   end
 
@@ -29,16 +22,11 @@ class MakersController < ApplicationController
 
   def update
     maker = Maker.find(params[:id])
-    maker.update({
-      name: params[:maker][:name],
-      year_founded: params[:maker][:year_founded],
-      domestic: params[:maker][:domestic]
-      })
-    maker.save
+    maker.update(maker_params)
     redirect_to "/makers/#{maker.id}"
   end
 
-  # def maker_params
-    # params.permit(:name, :year_founded, :domestic)
-  # end
+  def maker_params
+    params.permit(:name, :year_founded, :domestic)
+  end
 end

@@ -1,13 +1,11 @@
 <h1>Update Maker</h1>
 
-<form action="/makers/<%= @maker.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH">
-  <p>Name:</p>
-  <input type="text" name="maker[name]" value="<%= @maker.name %>"/><br/>
-  <p>Year Founded:</p>
-  <input type="text" name="maker[year_founded]" value="<%= @maker.year_founded %>"/><br/>
-  <p>Domestic?</p>
-  <input type="text" name="maker[domestic]" value=" <%= @maker.domestic %> "/><br/><br>
-  <input type="submit" value="Submit" />
-</form>
+<%= form_with url: "/makers/#{@maker.id}", method: :patch, local: true do |f| %>
+  <%= f.label "Update Name" %>
+  <%= f.text_field :name, value: "#{@maker.name}" %><br><br>
+  <%= f.label "Update Year Founded" %>
+  <%= f.number_field :year_founded, value: "#{@maker.year_founded}" %><br><br>
+  <%= f.label "Made in the USA? True/False" %>
+  <%= f.text_field :domestic, value: "#{@maker.domestic}" %><br><br>
+  <%= f.submit "Submit" %>
+<% end %>
