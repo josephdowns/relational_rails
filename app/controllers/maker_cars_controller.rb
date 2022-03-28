@@ -10,16 +10,12 @@ class MakerCarsController < ApplicationController
 
   def create
     @maker = Maker.find(params[:maker_id])
-    car = @maker.cars.create({
-      name: params[:name],
-      color: params[:color],
-      doors: params[:doors],
-      in_production: params[:in_production],
-      })
-
-    car.save
-
+    car = @maker.cars.create(car_params)
     redirect_to "/makers/#{car.maker_id}/cars"
+  end
+
+  def car_params
+    params.permit(:name, :color, :doors, :in_production)
   end
 
 end
