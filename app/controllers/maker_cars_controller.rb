@@ -5,22 +5,21 @@ class MakerCarsController < ApplicationController
   end
 
   def new
+    @maker = Maker.find(params[:maker_id])
   end
 
   def create
-    # @maker = Maker.find(params[:maker_id])
-    binding.pry
-    car = Car.create({
+    @maker = Maker.find(params[:maker_id])
+    car = @maker.cars.create({
       name: params[:car][:name],
       color: params[:car][:color],
       doors: params[:car][:doors],
       in_production: params[:car][:in_production],
-      maker_id: params[:car][:maker_id]
       })
 
     car.save
 
-    redirect_to "/makers/:maker_id/cars"
+    redirect_to "/makers/#{car.maker_id}/cars"
   end
 
 end
