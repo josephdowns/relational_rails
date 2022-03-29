@@ -9,6 +9,6 @@ class Car < ApplicationRecord
   end
 
   def self.sort_by_alpha
-    self.order(:name)
+    order(:name)
   end
 end

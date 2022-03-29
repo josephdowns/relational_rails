@@ -18,6 +18,12 @@ class CarsController < ApplicationController
     redirect_to "/cars/#{car.id}"
   end
 
+  def destroy
+    car = Car.find(params[:id])
+    car.destroy
+    redirect_to "/cars"
+  end
+
   def car_params
     params.permit(:name, :color, :in_production, :doors)
   end
