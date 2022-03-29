@@ -26,6 +26,12 @@ class MakersController < ApplicationController
     redirect_to "/makers/#{maker.id}"
   end
 
+  def destroy
+    maker = Maker.find(params[:id])
+    maker.destroy
+    redirect_to "/makers"
+  end
+
   def maker_params
     params.permit(:name, :year_founded, :domestic)
   end

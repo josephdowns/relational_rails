@@ -1,5 +1,5 @@
 class Maker < ApplicationRecord
-  has_many :cars
+  has_many :cars, dependent: :delete_all
   validates_presence_of :name
   validates_presence_of :year_founded
 

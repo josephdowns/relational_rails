@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/makers/:id', to: 'makers#show'
   get '/makers/:id/edit', to: 'makers#edit'
   patch '/makers/:id', to: 'makers#update'
+  delete '/makers/:id', to: 'makers#destroy'
   get '/cars', to: 'cars#index'
   get '/cars/:id', to: 'cars#show'
   get '/cars/:id/edit', to: 'cars#edit'
