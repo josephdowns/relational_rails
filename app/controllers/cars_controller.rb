@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
 
   def index
-    @cars = Car.all
+    @cars = Car.in_production
   end
 
   def show

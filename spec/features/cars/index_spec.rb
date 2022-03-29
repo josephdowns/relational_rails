@@ -1,9 +1,3 @@
-# User Story 3, Child Index
-#
-# As a visitor
-# When I visit '/child_table_name'
-# Then I see each Child in the system including the Child's attributes:
-
 require 'rails_helper'
 
 RSpec.describe "car index page", type: :feature do
@@ -17,12 +11,24 @@ RSpec.describe "car index page", type: :feature do
     visit '/cars'
     # save_and_open_page
     expect(page).to have_content(@car_1.name)
-    expect(page).to have_content(@car_2.name)
   end
 
   it "displays each car's color" do
     visit '/cars'
     expect(page).to have_content(@car_1.color)
     expect(page).to have_content(@car_1.color)
+  end
+
+#   As a visitor
+# When I visit the child index
+# Then I only see records where the boolean column is `true`
+
+  describe "When I visit the car index" do
+    it "shows records where in_production is true" do
+      visit '/cars'
+
+      expect(page).to have_content(@car_1.name)
+      expect(page).to_not have_content(@car_2.name)
+    end
   end
 end
