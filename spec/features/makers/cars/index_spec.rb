@@ -57,7 +57,7 @@ RSpec.describe "associations", type: :feature do
         expect(page).to have_content("#{@ix.name}")
         expect(page).to have_content("#{@z1.name}")
 
-        fill_in "Only show cars with more doors than", with: 3
+        fill_in("Only show cars with more doors than", with: 3)
         click_on "Submit"
 
         expect(page).to have_content("#{@x5.name}")

@@ -11,4 +11,8 @@ class Maker < ApplicationRecord
     cars.count
   end
 
+  def sort_by_doors(input)
+    cars.where("doors > #{input}")
+  end
+
 end

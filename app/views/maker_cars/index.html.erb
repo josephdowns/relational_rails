@@ -9,3 +9,9 @@
 <% end %>
 <p><%= link_to "Add New Car", "/makers/#{@maker.id}/cars/new" %> </p>
 <p><%= link_to "Sort Cars A-Z", "/makers/#{@maker.id}/cars?order=alpha", method: :get %> </p>
+<br>
+<%= form_with url: "/makers/#{@maker.id}/cars", method: :get, local: true do |f| %>
+  <%= f.label :doors, "Only show cars with more doors than" %>
+  <%= f.number_field :doors, in: 1..4, step: 1 %>
+  <%= f.submit "Submit" %>
+  <% end %>

@@ -1,8 +1,11 @@
 class MakerCarsController < ApplicationController
   def index
+    # binding.pry
     @maker = Maker.find(params[:maker_id])
     if params[:order] == "alpha"
       @cars = @maker.cars.sort_by_alpha
+    elsif params[:doors] != nil
+      @cars = @maker.sort_by_doors(params[:doors])
     else
       @cars = @maker.cars
     end
