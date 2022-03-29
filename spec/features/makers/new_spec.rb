@@ -5,7 +5,7 @@ RSpec.describe "maker creation page", type: :feature do
 
   it "links me to a makers/new" do
     visit "/makers"
-    click_on "New Maker"
+    click_on "Add New Maker"
 
     expect(current_path).to eq("/makers/new")
   end
