@@ -1,6 +1,7 @@
-<p> <%= link_to "All Makers", "/makers" %></p>
-<p> <%= link_to "All Cars", "/cars" %> </p>
+<p> <%= link_to "All Makers", "/makers" %>
+<%= link_to "All Cars", "/cars" %> </p>
 <h1> <%= @car.name %> </h1>
 <p>Color: <%= @car.color %></p>
 <p>Doors: <%= @car.doors %></p>
 <p>In production: <%= @car.in_production %></p>
+<p> <%= link_to "Update #{@car.name}", "/cars/#{@car.id}/edit"  %></p>

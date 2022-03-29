@@ -1,9 +1,3 @@
-# User Story 5, Parent Children Index
-#
-# As a visitor
-# When I visit '/parents/:parent_id/child_table_name'
-# Then I see each Child that is associated with that Parent with each Child's attributes:
-
 require 'rails_helper'
 
 RSpec.describe "associations", type: :feature do
@@ -37,5 +31,17 @@ RSpec.describe "associations", type: :feature do
     click_on @neon.name
 
     expect(current_path).to eq("/cars/#{@neon.id}")
+  end
+
+  describe "When I visit the maker/cars/ index page" do
+    it "has a link to sort children in alphabetical order" do
+      visit "/makers/#{@dodge.id}/cars"
+
+      expect(@neon.name).to appear_before(@aries.name)
+
+      click_on "Sort Cars A-Z"
+
+      expect(@aries.name).to appear_before(@neon.name)
+    end
   end
 end

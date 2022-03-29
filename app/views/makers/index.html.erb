@@ -2,4 +2,6 @@
 <h1>Makers</h1>
 <% @makers.each do |maker|  %>
 <p>Name: <%= maker.name %> Created at: <%= maker.created_at %>
+  <%= link_to "Update #{maker.name}", "/makers/#{maker.id}/edit" %>
 <% end %>
+<p> <%= link_to "Add New Maker", "/makers/new" %> </p>

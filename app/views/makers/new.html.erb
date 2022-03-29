@@ -1,0 +1,11 @@
+<h1>Enter a new maker</h1>
+
+<%= form_with url: '/makers', method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :year_founded %>
+  <%= f.text_field :year_founded %><br><br>
+  <%= f.label :domestic %>
+  <%= f.text_field :domestic %><br><br>
+  <%= f.submit "Create Maker" %>
+<% end %>

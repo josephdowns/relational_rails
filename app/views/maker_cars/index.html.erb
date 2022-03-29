@@ -1,5 +1,5 @@
-<p> <%= link_to "All Makers", "/makers" %></p>
-<p> <%= link_to "All Cars", "/cars" %> </p>
+<p> <%= link_to "All Makers", "/makers" %>
+<%= link_to "All Cars", "/cars" %> </p>
 <h1> <%= @maker.name %> </h1>
 <% @cars.each do |car| %>
 <h3> <%= link_to car.name, "/cars/#{car.id}" %> </h3>
@@ -7,3 +7,5 @@
 <p>Doors: <%= car.doors %></p>
 <p>Still in production: <%= car.in_production %></p>
 <% end %>
+<p><%= link_to "Add New Car", "/makers/#{@maker.id}/cars/new" %> </p>
+<p><%= link_to "Sort Cars A-Z", "/makers/#{@maker.id}/cars?order=alpha", method: :get %> </p>

@@ -1,0 +1,11 @@
+<h1>Update Maker</h1>
+
+<%= form_with url: "/makers/#{@maker.id}", method: :patch, local: true do |f| %>
+  <%= f.label "Update Name" %>
+  <%= f.text_field :name, value: "#{@maker.name}" %><br><br>
+  <%= f.label "Update Year Founded" %>
+  <%= f.number_field :year_founded, value: "#{@maker.year_founded}" %><br><br>
+  <%= f.label "Made in the USA? True/False" %>
+  <%= f.text_field :domestic, value: "#{@maker.domestic}" %><br><br>
+  <%= f.submit "Submit" %>
+<% end %>

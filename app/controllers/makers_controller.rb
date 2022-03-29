@@ -7,4 +7,26 @@ class MakersController < ApplicationController
     @maker = Maker.find(params[:id])
     @count = @maker.cars_count
   end
+
+  def new
+  end
+
+  def create
+    maker = Maker.create(maker_params)
+    redirect_to '/makers'
+  end
+
+  def edit
+    @maker = Maker.find(params[:id])
+  end
+
+  def update
+    maker = Maker.find(params[:id])
+    maker.update(maker_params)
+    redirect_to "/makers/#{maker.id}"
+  end
+
+  def maker_params
+    params.permit(:name, :year_founded, :domestic)
+  end
 end

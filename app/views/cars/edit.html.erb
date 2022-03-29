@@ -1,0 +1,13 @@
+<h1>Update Car:</h1>
+
+<%= form_with url: "/cars/#{@car.id}", method: :patch, local: true do |f| %>
+  <%= f.label :name, "Update Name" %>
+  <%= f.text_field :name, value: "#{@car.name}" %><br><br>
+  <%= f.label :color, "Update Color" %>
+  <%= f.text_field :color, value: "#{@car.color}" %><br><br>
+  <%= f.label :doors, "Update number of doors" %>
+  <%= f.number_field :doors, value: "#{@car.doors}", in: 1..5, step: 1 %><br><br>
+  <%= f.label :in_production, "Still in Production? True/False" %>
+  <%= f.select :in_production, ["true", "false"], value: "#{@car.in_production}" %><br><br>
+  <%= f.submit "Submit" %>
+<% end %>
