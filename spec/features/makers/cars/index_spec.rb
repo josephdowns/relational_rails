@@ -44,29 +44,20 @@ RSpec.describe "associations", type: :feature do
 
       expect(@aries.name).to appear_before(@neon.name)
     end
-    #   As a visitor
-    # When I visit the Parent's children Index Page
-    # I see a form that allows me to input a number value
-    # When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
-    # Then I am brought back to the current index page with only the records that meet that threshold shown.
 
-    describe "has a form to input a number" do
-      it "only displays values that exceed that number" do
-        visit "/makers/#{@bmw.id}/cars"
-        expect(page).to have_content("#{@x5.name}")
-        expect(page).to have_content("#{@ix.name}")
-        expect(page).to have_content("#{@z1.name}")
+  describe "has a form to input a number" do
+    it "only displays values that exceed that number" do
+      visit "/makers/#{@bmw.id}/cars"
+      expect(page).to have_content("#{@x5.name}")
+      expect(page).to have_content("#{@ix.name}")
+      expect(page).to have_content("#{@z1.name}")
 
-        fill_in("Only show cars with more doors than", with: 3)
-        click_on "Submit"
+      fill_in("Only show cars with more doors than", with: 3)
+      click_on "Submit"
 
-        expect(page).to have_content("#{@x5.name}")
-        expect(page).to have_content("#{@ix.name}")
-        expect(page).to_not have_content("#{@z1.name}")
-
-      end
+      expect(page).to have_content("#{@x5.name}")
+      expect(page).to have_content("#{@ix.name}")
+      expect(page).to_not have_content("#{@z1.name}")
     end
   end
-
-
 end
