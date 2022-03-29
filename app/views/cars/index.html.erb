@@ -2,7 +2,6 @@
 <h1>Cars</h1>
 <% @cars.each do |car| %>
 <h3> <%= car.name %> </h3>
-<p>Color: <%= car.color %> </p>
-<p>Doors: <%= car.doors %> </p>
-<p>Still in production: <%= car.in_production %> </p>
+<p>Color: <%= car.color %>, Doors: <%= car.doors %>, Still in production: <%= car.in_production %> </p>
+<p><%= link_to "Update #{car.name}", "/cars/#{car.id}/edit" %> </p>
 <% end %>
