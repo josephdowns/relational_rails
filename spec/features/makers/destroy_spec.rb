@@ -16,4 +16,19 @@ RSpec.describe "destroy a maker" do
      expect(page).to_not have_content("#{@maker_1.name}")
     end
   end
+
+  # As a visitor
+  # When I visit the parent index page
+  # Next to every parent, I see a link to delete that parent
+  # When I click the link
+  # I am returned to the Parent Index Page where I no longer see that parent
+  describe "when I visit the maker index page" do
+    it "has a link to delete the maker" do
+      visit "/makers"
+      expect(page).to have_content(@maker_1.name)
+      click_on "Delete #{@maker_1}"
+      expect(current_path).to eq("/makers")
+      expect(page).to_not have_content("#{@maker_1.name}")
+    end
+  end
 end
