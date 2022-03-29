@@ -16,7 +16,6 @@ RSpec.describe 'the makers show page' do
 
   it "displays the makers year_founded" do
     visit "/makers/#{@maker_1.id}"
-    # save_and_open_page
     expect(page).to have_content(@maker_1.year_founded)
   end
 
@@ -25,9 +24,6 @@ RSpec.describe 'the makers show page' do
     expect(page).to have_content(@maker_1.domestic)
   end
 
-  #   As a visitor
-  # When I visit a parent's show page
-  # I see a count of the number of children associated with this parent
   it "displays a count of cars associated with the maker" do
 
     visit "/makers/#{@maker_1.id}"

@@ -12,10 +12,6 @@ RSpec.describe "maker index page", type: :feature do
     expect(page).to have_content(@maker_2.name)
   end
 
-  #   As a visitor
-  # When I visit the parent index,
-  # I see that records are ordered by most recently created first
-  # And next to each of the records I see when it was created
   it "displays timestamp of created by" do
 
     visit "/makers"
