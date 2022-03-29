@@ -7,4 +7,8 @@ class Car < ApplicationRecord
   def self.in_production
     where(in_production: true)
   end
+
+  def self.sort_by_alpha
+    self.order(:name)
+  end
 end

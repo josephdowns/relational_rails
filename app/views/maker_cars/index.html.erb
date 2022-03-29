@@ -8,3 +8,4 @@
 <p>Still in production: <%= car.in_production %></p>
 <% end %>
 <p><%= link_to "Add New Car", "/makers/#{@maker.id}/cars/new" %> </p>
+<p><%= link_to "Sort Cars A-Z", "/makers/#{@maker.id}/cars?order=alpha", method: :get %> </p>

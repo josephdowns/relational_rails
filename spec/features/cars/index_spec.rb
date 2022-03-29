@@ -19,10 +19,6 @@ RSpec.describe "car index page", type: :feature do
     expect(page).to have_content(@car_1.color)
   end
 
-#   As a visitor
-# When I visit the child index
-# Then I only see records where the boolean column is `true`
-
   describe "When I visit the car index" do
     it "shows records where in_production is true" do
       visit '/cars'
