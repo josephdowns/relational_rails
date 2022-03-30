@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get '/makers/:maker_id/cars', to: 'maker_cars#index'
   get '/makers/:maker_id/cars/new', to: 'maker_cars#new'
   post '/makers/:maker_id/cars', to: 'maker_cars#create'
+  delete 'makers/:maker_id/cars', to: 'maker_cars#destroy'
 end

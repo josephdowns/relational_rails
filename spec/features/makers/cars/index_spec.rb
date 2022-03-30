@@ -44,6 +44,7 @@ RSpec.describe "associations", type: :feature do
 
       expect(@aries.name).to appear_before(@neon.name)
     end
+  end
 
   describe "has a form to input a number" do
     it "only displays values that exceed that number" do

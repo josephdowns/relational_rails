@@ -1,6 +1,5 @@
 class MakerCarsController < ApplicationController
   def index
-    # binding.pry
     @maker = Maker.find(params[:maker_id])
     if params[:order] == "alpha"
       @cars = @maker.cars.sort_by_alpha
@@ -16,9 +15,16 @@ class MakerCarsController < ApplicationController
   end
 
   def create
-    @maker = Maker.find(params[:maker_id])
-    car = @maker.cars.create(car_params)
+    maker = Maker.find(params[:maker_id])
+    car = maker.cars.create(car_params)
     redirect_to "/makers/#{car.maker_id}/cars"
+  end
+
+  def destroy
+    maker = Maker.find(params[:maker_id])
+    car = maker.cars.find(params[:id])
+    car.destroy
+    redirect_to "/cars"
   end
 
   def car_params
