@@ -6,6 +6,6 @@
   <%= f.label "Update Year Founded" %>
   <%= f.number_field :year_founded, value: "#{@maker.year_founded}" %><br><br>
   <%= f.label "Made in the USA? True/False" %>
-  <%= f.text_field :domestic, value: "#{@maker.domestic}" %><br><br>
+  <%= f.select :domestic, ["true", "false"], value: "#{@maker.domestic}" %><br><br>
   <%= f.submit "Submit" %>
 <% end %>
