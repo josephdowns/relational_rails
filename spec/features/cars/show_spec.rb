@@ -1,7 +1,3 @@
-# As a visitor
-# When I visit '/child_table_name/:id'
-# Then I see the child with that id including the child's attributes:
-
 require 'rails_helper'
 
 RSpec.describe "displays a certain car and attributes", type: :feature do

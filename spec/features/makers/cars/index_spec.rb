@@ -7,6 +7,7 @@ RSpec.describe "associations", type: :feature do
 
     @x5 = @bmw.cars.create!(name: "X5", color: "blue", doors: 4, in_production: true)
     @ix = @bmw.cars.create!(name: "iX", color: "black", doors: 4, in_production: true)
+    @z1 = @bmw.cars.create!(name: "Z1", color: "red", doors: 2, in_production: false)
 
     @neon = @dodge.cars.create!(name: "Neon", color: "white", doors: 4, in_production: true)
     @aries = @dodge.cars.create!(name: "Aries", color: "beige", doors: 2, in_production: false)
@@ -42,6 +43,22 @@ RSpec.describe "associations", type: :feature do
       click_on "Sort Cars A-Z"
 
       expect(@aries.name).to appear_before(@neon.name)
+    end
+  end
+
+  describe "has a form to input a number" do
+    it "only displays values that exceed that number" do
+      visit "/makers/#{@bmw.id}/cars"
+      expect(page).to have_content("#{@x5.name}")
+      expect(page).to have_content("#{@ix.name}")
+      expect(page).to have_content("#{@z1.name}")
+
+      fill_in("Only show cars with more doors than", with: 3)
+      click_on "Submit"
+
+      expect(page).to have_content("#{@x5.name}")
+      expect(page).to have_content("#{@ix.name}")
+      expect(page).to_not have_content("#{@z1.name}")
     end
   end
 end

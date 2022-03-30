@@ -5,7 +5,14 @@
 <h3> <%= link_to car.name, "/cars/#{car.id}" %> </h3>
 <p>Color: <%= car.color %></p>
 <p>Doors: <%= car.doors %></p>
-<p>Still in production: <%= car.in_production %></p>
+<p>Still in production: <%= car.in_production %>
+<%= link_to "Delete #{car.name}", "/makers/#{@maker.id}/cars?id=#{car.id}", method: :delete %></p>
 <% end %>
 <p><%= link_to "Add New Car", "/makers/#{@maker.id}/cars/new" %> </p>
 <p><%= link_to "Sort Cars A-Z", "/makers/#{@maker.id}/cars?order=alpha", method: :get %> </p>
+<br>
+<%= form_with url: "/makers/#{@maker.id}/cars", method: :get, local: true do |f| %>
+  <%= f.label :doors, "Only show cars with more doors than" %>
+  <%= f.number_field :doors, in: 1..4, step: 1 %>
+  <%= f.submit "Submit" %>
+  <% end %>

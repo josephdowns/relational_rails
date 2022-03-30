@@ -1,7 +1,8 @@
 <p> <%= link_to "All Cars", "/cars" %> </p>
 <h1>Makers</h1>
 <% @makers.each do |maker|  %>
-<p>Name: <%= maker.name %> Created at: <%= maker.created_at %>
+<p>Name: <%= maker.name %>, Created at: <%= maker.created_at %>
   <%= link_to "Update #{maker.name}", "/makers/#{maker.id}/edit" %>
+  <%= link_to "Delete #{maker.name}", "/makers/#{maker.id}", method: :delete %>
 <% end %>
 <p> <%= link_to "Add New Maker", "/makers/new" %> </p>

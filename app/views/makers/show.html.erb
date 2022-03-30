@@ -6,3 +6,4 @@
 <p>Number of cars: <%= @count %></p>
 <p><%= link_to "List of #{@maker.name} Cars", "/makers/#{@maker.id}/cars"  %></p>
 <p><%= link_to "Update #{@maker.name}", "/makers/#{@maker.id}/edit" %></p>
+<p><%= link_to "Delete #{@maker.name}", "/makers/#{@maker.id}", method: :delete%></p>

@@ -1,5 +1,5 @@
 class Maker < ApplicationRecord
-  has_many :cars
+  has_many :cars, dependent: :delete_all
   validates_presence_of :name
   validates_presence_of :year_founded
 
@@ -9,6 +9,10 @@ class Maker < ApplicationRecord
 
   def cars_count
     cars.count
+  end
+
+  def sort_by_doors(input)
+    cars.where("doors > #{input}")
   end
 
 end
