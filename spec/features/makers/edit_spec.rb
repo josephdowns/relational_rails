@@ -17,16 +17,14 @@ RSpec.describe "maker update page", type: :feature do
 
     fill_in('name', with: "BMW")
     fill_in('year_founded', with: 2016)
-    fill_in('domestic', with: true)
     click_button "Submit"
     expect(current_path).to eq("/makers/#{bmw.id}")
 
     expect(page).to have_content(2016)
-    expect(page).to have_content(true)
     expect(page).to_not have_content(1916)
 
   end
-  
+
   describe "When I visit the maker index page" do
     describe "Next to every maker, I see a link to edit that maker" do
       it "takes me to a form to update info" do
